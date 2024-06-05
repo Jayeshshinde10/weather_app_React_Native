@@ -21,9 +21,11 @@ export default function App() {
         lat: location.coords.latitude,
         lon: location.coords.longitude,
       })
+      console.log("coordinates are ")
+      console.log(coordinates)
     }
     else {
-      console.log("error")
+      console.log("error occured ")
     }
         }
         catch(error){
@@ -33,11 +35,10 @@ export default function App() {
 
   return (
     <>
-      <ImageBackground source={HomeImage} imageStyle={style.img}>
+      <ImageBackground source={HomeImage} imageStyle={style.img} style={style.container}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container} />
-          <Text>{`latitude is ${coordinates.lat}`}</Text>
-          <Text>{`latitude is ${coordinates.lon}`}</Text>
+          <Text></Text>
         </SafeAreaProvider>
       </ImageBackground>
     </>
