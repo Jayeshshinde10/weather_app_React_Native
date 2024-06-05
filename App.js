@@ -13,7 +13,7 @@ export default function App() {
   })
   async function getLocation() {
         try{
-    const status = await requestForegroundPermissionsAsync();
+    const {status }= await requestForegroundPermissionsAsync();
 
     if (status == "granted") {
       const location = await getCurrentPositionAsync();
@@ -38,7 +38,10 @@ export default function App() {
       <ImageBackground source={HomeImage} imageStyle={style.img} style={style.container}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container} />
-          <Text></Text>
+        {coordinates && <>
+        <Text>latitude is {coordinates.lat}</Text>
+        <Text>longitude is {coordinates.lon}</Text>
+        </>}
         </SafeAreaProvider>
       </ImageBackground>
     </>
