@@ -2,7 +2,7 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import style from './App.Style.js';
 import HomeImage from './assets/Home.jpeg'
-import Home from './Pages/Home.js'
+import Home from './Pages/Home/Home.js'
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { useEffect, useState } from 'react';
 export default function App() {
