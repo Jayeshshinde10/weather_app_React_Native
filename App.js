@@ -66,8 +66,7 @@ export default function App() {
         <Text>longitude is {coordinates.lon}</Text>
         </>
         }
-        {isloaded && <Text style={{fontFamily:"kanit-light"}}>Hello world </Text>}
-
+        {isloaded && <Text style={{fontFamily:"kanit-light",fontSize:30}}>Hello world </Text>}
         </SafeAreaProvider>
       </ImageBackground>
     </>
