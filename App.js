@@ -7,7 +7,6 @@ export default function App() {
     <>
       <SafeAreaProvider>
         <SafeAreaView style={style.container}/>
-        <Home/>
       </SafeAreaProvider>
     </>
   );
