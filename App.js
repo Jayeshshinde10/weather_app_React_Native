@@ -7,11 +7,12 @@ import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo
 import { useEffect, useState } from 'react';
 export default function App() {
   const [coordinates, setCoordinates] = useState()
-  
+
   useEffect(()=>{
     getLocation();
   })
   async function getLocation() {
+        try{
     const status = await requestForegroundPermissionsAsync();
 
     if (status == "granted") {
@@ -24,12 +25,19 @@ export default function App() {
     else {
       console.log("error")
     }
+        }
+        catch(error){
+          console.log("error is "+error.message)
+        }
   }
+
   return (
     <>
       <ImageBackground source={HomeImage} imageStyle={style.img}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container} />
+          <Text>{`latitude is ${coordinates.lat}`}</Text>
+          <Text>{`latitude is ${coordinates.lon}`}</Text>
         </SafeAreaProvider>
       </ImageBackground>
     </>
