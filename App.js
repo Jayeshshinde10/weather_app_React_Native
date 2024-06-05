@@ -4,16 +4,25 @@ import style from './App.Style.js';
 import HomeImage from './assets/Home.jpeg'
 import Home from './Pages/Home/Home.js'
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react-native';
 export default function App() {
   const [coordinates, setCoordinates] = useState()
+  const [weather,setWeatherData] = useState()
 
   useEffect(()=>{
     getLocation();
-  })
+  },[])
+
+  useEffect(()=>{
+    if(coordinates){
+      WeatherFuncCaller(coordinates)
+      console.log(weather)
+    }
+  },[coordinates])
+
   async function getLocation() {
         try{
-    const {status }= await requestForegroundPermissionsAsync();
+    const {status } = await requestForegroundPermissionsAsync();
 
     if (status == "granted") {
       const location = await getCurrentPositionAsync();
@@ -32,6 +41,13 @@ export default function App() {
           console.log("error is "+error.message)
         }
   }
+
+  async function WeatherFuncCaller(coords){
+    const weatherdata = await GeoWeatherApi.getWeatherFromApi(coords)
+    setWeatherData(weatherdata);
+  }
+
+
 
   return (
     <>
