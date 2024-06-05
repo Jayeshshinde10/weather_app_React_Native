@@ -3,29 +3,34 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import style from './App.Style.js';
 import HomeImage from './assets/Home.jpeg'
 import Home from './Pages/Home/Home.js';
-import { GeoWeatherApi } from './Api/Api.js';
+import { useFonts } from 'expo-font';
 
-import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
+//import { GeoWeatherApi } from './Api/Api.js';
+//import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
+
 import { useEffect, useState } from 'react-native';
 export default function App() {
   const [coordinates, setCoordinates] = useState()
   const [weather,setWeatherData] = useState()
+  const {isloaded} = useFonts({
+    "kanit-light":"./assests/kanit-Light.ttf"
+  })
 
   useEffect(()=>{
     getLocation();
   },[])
 
 
-  useEffect(()=>{
-    if(coordinates){
-      WeatherFuncCaller(coordinates)
-      console.log(weather)
-    }
-  },[coordinates])
+  // useEffect(()=>{
+  //   if(coordinates){
+  //     WeatherFuncCaller(coordinates)
+  //     console.log(weather)
+  //   }
+  // },[coordinates])
 
   async function getLocation() {
         try{
-    const {status } = await requestForegroundPermissionsAsync();
+    const { status } = await requestForegroundPermissionsAsync();
 
     if (status == "granted") {
       const location = await getCurrentPositionAsync();
@@ -61,6 +66,8 @@ export default function App() {
         <Text>longitude is {coordinates.lon}</Text>
         </>
         }
+        {isloaded && <Text style={{fontFamily:"kanit-light"}}>Hello world </Text>}
+
         </SafeAreaProvider>
       </ImageBackground>
     </>
