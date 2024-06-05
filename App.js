@@ -2,7 +2,9 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import style from './App.Style.js';
 import HomeImage from './assets/Home.jpeg'
-import Home from './Pages/Home/Home.js'
+import Home from './Pages/Home/Home.js';
+import { GeoWeatherApi } from './Api/Api.js';
+
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location';
 import { useEffect, useState } from 'react-native';
 export default function App() {
@@ -12,6 +14,7 @@ export default function App() {
   useEffect(()=>{
     getLocation();
   },[])
+
 
   useEffect(()=>{
     if(coordinates){
@@ -47,17 +50,17 @@ export default function App() {
     setWeatherData(weatherdata);
   }
 
-
-
   return (
     <>
       <ImageBackground source={HomeImage} imageStyle={style.img} style={style.container}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container} />
-        {coordinates && <>
+        {
+        coordinates && <>
         <Text>latitude is {coordinates.lat}</Text>
         <Text>longitude is {coordinates.lon}</Text>
-        </>}
+        </>
+        }
         </SafeAreaProvider>
       </ImageBackground>
     </>
