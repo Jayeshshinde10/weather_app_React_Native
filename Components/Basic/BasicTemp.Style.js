@@ -1,18 +1,18 @@
 import { StyleSheet } from "react-native";
 const style = StyleSheet.create({
-    asicTemp_container: {
-      flex:1
+    basicTemp_container: {
+        flex: 1,
+        padding: 15,
+        backgroundColor: "yellow",
     },
-    city: {
-
-    },
-    clock_text: {
+    city: {},
+    city_text: {
         fontSize: 30,
         color: "white"
     },
 
     clock: {
-        alignItems: "flex-end",
+        alignItems: "space-between",
     },
     clock_text: {
         fontSize: 30,
@@ -34,6 +34,12 @@ const style = StyleSheet.create({
         width: "50",
         height: "50",
         backgroundColor: "white"
+    },
+    temeperature:{
+        flexDirection:"row",
+        alignItems:"base-line",
+        justifyContent:"space-around"
+
     }
 })
 

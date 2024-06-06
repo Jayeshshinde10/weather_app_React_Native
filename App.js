@@ -13,10 +13,10 @@ import {
 import { useEffect, useState } from 'react';
 export default function App() {
   const [coordinates, setCoordinates] = useState();
-  const [weather, setWeatherData] = useState();
-  const [ isloaded ] = useFonts({
-    'kanit-light': require('./assests/kanit-Light.ttf'),
-  });
+  // const [weather, setWeatherData] = useState();
+  // const [ isloaded ] = useFonts({
+  //   'kanit-light': require('./assests/kanit-Light.ttf'),
+  // });
 
   useEffect(() => {
     getLocation();
@@ -49,10 +49,10 @@ export default function App() {
     }
   }
 
-  async function WeatherFuncCaller(coords) {
-    const weatherdata = await GeoWeatherApi.getWeatherFromApi(coords);
-    setWeatherData(weatherdata);
-  }
+  // async function WeatherFuncCaller(coords) {
+  //   const weatherdata = await GeoWeatherApi.getWeatherFromApi(coords);
+  //   setWeatherData(weatherdata);
+  // }
 
   return (
     <>

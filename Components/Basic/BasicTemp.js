@@ -4,6 +4,7 @@ import { View } from "react-native"
 export default function BasicTemp() {
     return (
         <>
+        <View style={style.basicTemp_container}>
             <View style={style.city}>
                 <TXT style={style.city_text}>city</TXT>
             </View>
@@ -18,6 +19,7 @@ export default function BasicTemp() {
                     33
                 </TXT>
                 <Image style={style.temperature_image} />
+            </View>
             </View>
         </>
     )
