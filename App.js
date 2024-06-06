@@ -61,8 +61,9 @@ export default function App() {
         imageStyle={style.img}
         style={style.container}>
         <SafeAreaProvider>
-          <SafeAreaView style={style.container} />
+          <SafeAreaView style={style.container}>
           <Home/>
+          </SafeAreaView>
         </SafeAreaProvider>
       </ImageBackground>
     </>

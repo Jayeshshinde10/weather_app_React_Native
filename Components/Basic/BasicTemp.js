@@ -1,13 +1,14 @@
 import style from "./BasicTemp.Style.js"
 import TXT from "../Txt/TXT.js"
+import { View } from "react-native"
 export default function BasicTemp() {
     return (
         <>
             <View style={style.city}>
-                <TXT>city</TXT>
+                <TXT style={style.city_text}>city</TXT>
             </View>
             <View style={style.clock}>
-                <TXT>clock</TXT>
+                <TXT style={style.clock_text}>clock</TXT>
             </View>
             <View style={style.interpretation}>
                 <TXT style={style.interpretation_text}>Sunny</TXT>
