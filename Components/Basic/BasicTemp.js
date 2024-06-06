@@ -1,6 +1,6 @@
 import style from "./BasicTemp.Style.js"
 import TXT from "../Txt/TXT.js"
-import { View } from "react-native"
+import { View,Image } from "react-native"
 export default function BasicTemp() {
     return (
         <>
