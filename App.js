@@ -62,14 +62,7 @@ export default function App() {
         style={style.container}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container} />
-          {coordinates && (
-            <>
-              <Text style={{ fontFamily: 'kanit-light', fontSize: 30 }}>
-                latitude is {coordinates.lat}
-              </Text>
-              <Text style={{fontSize:30}}>longitude is {coordinates.lon}</Text>
-            </>
-          )}
+          <Home/>
         </SafeAreaProvider>
       </ImageBackground>
     </>
