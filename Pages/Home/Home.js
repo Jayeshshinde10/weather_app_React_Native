@@ -5,6 +5,8 @@ export default function Home() {
     return (
         <>
           <BasicTemp></BasicTemp> 
+          <view style={{flex:2}}></view>
+          <view style={{flex:1}}></view>
         </>
     )
 }

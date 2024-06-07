@@ -4,7 +4,7 @@ import style from './App.Style.js';
 import HomeImage from './assets/Home.jpeg';
 import Home from './Pages/Home/Home.js';
 import { useFonts } from 'expo-font';
-//import { GeoWeatherApi } from './Api/Api.js';
+import GeoWeatherApi from './API/api.js';
 import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
@@ -13,7 +13,7 @@ import {
 import { useEffect, useState } from 'react';
 export default function App() {
   const [coordinates, setCoordinates] = useState();
-  // const [weather, setWeatherData] = useState();
+   const [weather, setWeatherData] = useState();
   // const [ isloaded ] = useFonts({
   //   'kanit-light': require('./assests/kanit-Light.ttf'),
   // });
@@ -22,12 +22,12 @@ export default function App() {
     getLocation();
   }, []);
 
-  // useEffect(()=>{
-  //   if(coordinates){
-  //     WeatherFuncCaller(coordinates)
-  //     console.log(weather)
-  //   }
-  // },[coordinates])
+  useEffect(()=>{
+    if(coordinates){
+      WeatherFuncCaller(coordinates)
+      console.log(weather)
+    }
+  },[coordinates])
 
   async function getLocation() {
     try {
@@ -49,10 +49,10 @@ export default function App() {
     }
   }
 
-  // async function WeatherFuncCaller(coords) {
-  //   const weatherdata = await GeoWeatherApi.getWeatherFromApi(coords);
-  //   setWeatherData(weatherdata);
-  // }
+  async function WeatherFuncCaller(coords) {
+    const weatherdata = await GeoWeatherApi.getWeatherFromApi(coords);
+    setWeatherData(weatherdata);
+  }
 
   return (
     <>

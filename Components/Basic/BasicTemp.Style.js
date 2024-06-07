@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 const style = StyleSheet.create({
     basicTemp_container: {
-        flex: 1,
+        flex: 2,
         padding: 15,
         backgroundColor: "yellow",
     },
