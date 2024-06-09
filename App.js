@@ -10,28 +10,31 @@ import {
   requestForegroundPermissionsAsync,
   getCurrentPositionAsync,
 } from 'expo-location';
-
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import { useEffect, useState } from 'react';
+import Forecasts from './Pages/Forecasts/Forecast.js';
+const stack = createNativeStackNavigator()
 export default function App() {
   const [coordinates, setCoordinates] = useState();
-  const [weather,setWeather] = useState();
+  //const [weather,setWeather] = useState();
 
   useEffect(() => {
     getLocation();
   }, []);
 
      
-  useEffect(()=>{
-    if(coordinates){
-      fetchWeatherByCoords(coordinates)
-      console.log(weather)
-    }
-  },[coordinates])
+  // useEffect(()=>{
+  //   if(coordinates){
+  //     fetchWeatherByCoords(coordinates)
+  //     console.log(weather)
+  //   }
+  // },[coordinates])
     
-  async function fetchWeatherByCoords(coords) {
-    const weatherResponse = await getWeatherData(coords);
-    setWeather(weatherResponse)
-  }
+  // async function fetchWeatherByCoords(coords) {
+  //   const weatherResponse = await getWeatherData(coords);
+  //   setWeather(weatherResponse)
+  // }
 
 
   async function getLocation() {
@@ -54,19 +57,23 @@ export default function App() {
     }
   }
 
-
   return (
     <>
+    <NavigationContainer>
       <ImageBackground
         source={HomeImage}
         imageStyle={style.img}
         style={style.container}>
         <SafeAreaProvider>
           <SafeAreaView style={style.container}>
-          <Home/>
+          <stack.Navigator initialRouteName='Home'>
+            <stack.Screen name='Home' component={Home}/>
+            <stack.Screen name ='forecasts' component={Forecasts}/>
+          </stack.Navigator>
           </SafeAreaView>
         </SafeAreaProvider>
       </ImageBackground>
+      </NavigationContainer>
     </>
   );
 }
